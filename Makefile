@@ -25,7 +25,7 @@ usage:
 	@echo ""
 
 test:
-	go test -cover ./pkg/...
+	go test -race -cover ./pkg/...
 
 test-all:
 	@./script/test_all.sh
@@ -63,10 +63,10 @@ bootstrap:
 	gox -build-toolchain
 
 setup:
-	go get github.com/tools/godep
-	go get golang.org/x/tools/cmd/cover
-	go get github.com/mitchellh/gox
-	go get github.com/jteeuwen/go-bindata/...
+	go get -u github.com/tools/godep
+	go get -u golang.org/x/tools/cmd/cover
+	go get -u github.com/mitchellh/gox
+	go get -u github.com/jteeuwen/go-bindata/...
 	godep restore
 
 clean:
